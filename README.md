@@ -151,61 +151,61 @@ Asset: - SPY (S&P 500 ETF proxy)
 
 ### dim_date
 
-  Column     Description
-  ---------- ------------------------
-  date_key   integer key (YYYYMMDD)
-  date       calendar date
-  year       year
-  month      month
-  day        day
-  iso_week   ISO week
-  quarter    quarter
+| Column | Description |
+|-------|-------------|
+| date_key | integer key (YYYYMMDD) |
+| date | calendar date |
+| year | year |
+| month | month |
+| day | day |
+| iso_week | ISO week |
+| quarter | quarter |
 
 ### dim_asset
 
-  Column         Description
-  -------------- -----------------------------
-  asset_key      surrogate key
-  asset_symbol   ticker
-  asset_name     asset name
-  asset_type     crypto / fx / stock / index
-  currency       quote currency
+| Column | Description |
+|-------|-------------|
+| asset_key | surrogate key |
+| asset_symbol | ticker |
+| asset_name | asset name |
+| asset_type | crypto / fx / stock / index |
+| currency | quote currency |
 
 ## Fact Tables
 
 ### fact_daily_price
 
-  Column        Description
-  ------------- ---------------------
-  date_key      date dimension key
-  asset_key     asset dimension key
-  price         closing price
-  source        data source
-  ingested_at   ingestion timestamp
+| Column | Description |
+|-------|-------------|
+| date_key | date dimension key |
+| asset_key | asset dimension key |
+| price | closing price |
+| source | data source |
+| ingested_at | ingestion timestamp |
 
 ### fact_daily_metrics
 
-  Column          Description
-  --------------- ------------------------
-  date_key        date dimension key
-  asset_key       asset dimension key
-  daily_return    daily return
-  vol_30d         30 day volatility
-  vol_90d         90 day volatility
-  vol_365d        365 day volatility
-  corr_btc_30d    BTC correlation (30d)
-  corr_btc_90d    BTC correlation (90d)
-  corr_btc_365d   BTC correlation (365d)
-  r7d             7 day return
-  r30d            30 day return
-  r90d            90 day return
-  r180d           180 day return
-  r365d           365 day return
-  rel_r7d         return relative to BTC
-  rel_r30d        return relative to BTC
-  rel_r90d        return relative to BTC
-  rel_r180d       return relative to BTC
-  rel_r365d       return relative to BTC
+| Column | Description |
+|-------|-------------|
+| date_key | date dimension key |
+| asset_key | asset dimension key |
+| daily_return | daily return |
+| vol_30d | 30 day volatility |
+| vol_90d | 90 day volatility |
+| vol_365d | 365 day volatility |
+| corr_btc_30d | BTC correlation (30d) |
+| corr_btc_90d | BTC correlation (90d) |
+| corr_btc_365d | BTC correlation (365d) |
+| r7d | 7 day return |
+| r30d | 30 day return |
+| r90d | 90 day return |
+| r180d | 180 day return |
+| r365d | 365 day return |
+| rel_r7d | return relative to BTC |
+| rel_r30d | return relative to BTC |
+| rel_r90d | return relative to BTC |
+| rel_r180d | return relative to BTC |
+| rel_r365d | return relative to BTC |
 
 ------------------------------------------------------------------------
 
