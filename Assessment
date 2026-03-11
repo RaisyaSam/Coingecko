@@ -1,0 +1,33 @@
+import requests
+import pandas as pd
+from datetime import datetime
+import time
+
+BASE_URL = "https://api.massive.com/v2/aggs/ticker"
+
+def fetch_stock_data(ticker, start_date, end_date, api_key):
+
+    url = f"{BASE_URL}/{ticker}/range/1/day/{start_date}/{end_date}"
+
+    headers = {
+        "Authorization": f"Bearer {api_key}"
+    }
+
+    response = requests.get(url, headers=headers)
+
+    if response.status_code != 200:
+        raise Exception(response.text)
+
+    data = response.json()["results"]
+
+    df = pd.DataFrame(data)
+
+    df["date"] = pd.to_datetime(df["t"], unit="ms")
+
+    df = df.rename(columns={
+        "c": "close_price"
+    })
+
+    df["asset"] = ticker
+
+    return df[["date","asset","close_price"]]

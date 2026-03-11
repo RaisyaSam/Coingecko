@@ -1,0 +1,41 @@
+massive:
+  api_key: "YOUR_MASSIVE_API_KEY"
+  base_url: "https://api.massive.com"   
+
+coingecko:
+  base_url: "https://api.coingecko.com/api/v3"
+  api_key: "YOUR_COINGECKO_API_KEY"
+
+pipeline:
+  # default analysis window
+  days: 364
+  # default base currency
+  base_currency: "USD"
+
+assets:
+  crypto:
+    - symbol: "BTC"
+      coingecko_id: "bitcoin"
+      currency: "USD"
+
+  fx:
+    - symbol: "USD"
+      pair: "USDUSD"
+    - symbol: "EUR"
+      pair: "EURUSD"
+    - symbol: "GBP"
+      pair: "GBPUSD"
+
+  stocks:
+    - symbol: "AAPL"
+    - symbol: "GOOGL"
+    - symbol: "MSFT"
+    - symbol: "SPY"
+
+  index: []
+
+storage:
+  warehouse_path: "data/warehouse/warehouse.duckdb"
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  output_dir: "output"
